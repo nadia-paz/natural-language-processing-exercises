@@ -14,7 +14,7 @@ def get_blog_articles():
 
     # request the content from the main page
     soup = BeautifulSoup(response.content, 'html.parser')
-
+    h2 = soup.find_all('h2')
     # create a dictionary to hold link, title and content of the article
     blog_articles = {
         #'link':[],
