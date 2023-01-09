@@ -106,8 +106,6 @@ def get_news_articles():
     shorts = []
     # loop through the categories and scrap the news
     for key in categories_links:
-        # dictionary to hold title, content and category
-        d = {}
         # link
         l = categories_links[key]
         # new soup uses category's link 'l'
@@ -115,6 +113,8 @@ def get_news_articles():
         # all news cards from the page
         news_cards = s.find_all('div', class_='news-card')
         for news in news_cards:
+            # dictionary to hold title, content and category
+            d = {}
             # add title
             d['title'] = news.find('a').text.strip()
             # grab the text of the article
